@@ -53,6 +53,17 @@ class Clothes extends Product
 }
 $coat = new Clothes("Teddy Coat", "Camel", "Warm Lapin coat", "250$", "78908", "42EU", "Cashmere and Lapin", "Winter");
 
+class Seller
+{
+    public $vendor;
+}
+
+$user1 = new Seller();
+$user1->seller = "Ufficio Tech";
+
+$user2 = new Seller();
+$user2->seller = "Peccato Moda";
+
 var_dump($coat);
 
 $preview = [
@@ -83,6 +94,7 @@ $preview = [
         <p><strong>Garanzia:</strong> <?php echo $usb->assurance; ?></p>
         <p><strong>Dispositivo compatibile:</strong> <?php echo $usb->compatibility; ?></p>
         <p><strong>Codice prodotto:</strong> <?php echo $usb->getCode(); ?></p>
+        <p><strong>Venduto da:</strong> <?php echo $user1->seller; ?></p>
     </div>
     <div>
         <h2>section->> CLOTHES</h2>
@@ -96,13 +108,13 @@ $preview = [
         <p><strong>Codice prodotto:</strong> <?php echo $coat->getCode(); ?></p>
     </div>
     <div>
-        <h2>section--> BEST SELLER</h2>
+        <h2>section->> BEST SELLER</h2>
         <?php foreach ($preview as $post) { ?>
-
-            <a href="">
-                <h3><?php echo $post->name; ?></h3>
+            <strong>Prodotto Must Have: </strong>
+            <a href="#">
+                <p><?php echo $post->name; ?></p>
             </a>
-            <p><?php echo $post->price; ?></p>
+            <p><strong>Prezzo: </strong><?php echo $post->price; ?></p>
 
         <?php } ?>
     </div>
