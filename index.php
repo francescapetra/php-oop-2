@@ -13,43 +13,43 @@
             $this->description = $_description;
             $this->price = $_price;
 
-
-
         }
         // public function getAuthor(){
         //     return $this->name;
         // }  
     }
-    // una istanza 1
-       
-        
-      
+    class Hightech extends Product{
 
+        public $power_source;
+        public $assurance;
+        public $compatibility;
 
-    // una istanza 2
-        
+    }
 
-      
-        
+    class Clothes extends Product
+    {
+        public $size;
+        public $tissue;
+        public $season;
+    }
+    
+    $usb = new Hightech ("DSK", "black", "usb pen", "15$");
+    $usb->power_source = 'Charge';
+    $usb->assurance = '2 years';
+    $usb->compatibility = 'PC';
 
-    // $array = [
-    //     $promo,
-    //     $article,
-    // ];
-
-
-        // var_dump($article);
-        // echo $promo-> 
+    var_dump($usb);
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Product</title>
 
     <body>
  
