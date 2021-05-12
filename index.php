@@ -1,4 +1,7 @@
-<?php
+    <?php
+    $user1 = new Seller("Ufficio Tech");
+
+    $user2 = new Seller("Peccato Moda");
 
     class Product
     {
@@ -8,14 +11,16 @@
         public $description;
         public $price;
         protected $code;
+        public $vendor;
 
-        public function __construct($_name, $_color, $_description, $_price, $_code)
+        public function __construct($_name, $_color, $_description, $_price, $_code, Seller $_vendor)
         {
             $this->name = $_name;
             $this->color = $_color;
             $this->description = $_description;
             $this->price = $_price;
             $this->code = $_code;
+            $this->vendor = $_vendor;
         }
         public function getCode()
         {
@@ -29,7 +34,7 @@
         public $assurance;
         public $compatibility;
     }
-    $usb = new Hightech("DSK", "Black", "Usb pen", "15$", "65758");
+    $usb = new Hightech("DSK", "Black", "Usb pen", "15$", "65758", $user1);
     $usb->power_source = 'Charge';
     $usb->assurance = '2 years';
     $usb->compatibility = 'PC';
@@ -43,26 +48,23 @@
         public $tissue;
         public $season;
 
-        public function __construct($_name, $_color, $_description, $_price, $_code, $_size, $_tissue, $_season)
+        public function __construct($_name, $_color, $_description, $_price, $_code, $_size, $_tissue, $_season, Seller $_vendor)
         {
-            parent::__construct($_name, $_color, $_description, $_price, $_code);
+            parent::__construct($_name, $_color, $_description, $_price, $_code, $_vendor);
             $this->size = $_size;
             $this->tissue = $_tissue;
             $this->season = $_season;
         }
     }
-    $coat = new Clothes("Teddy Coat", "Camel", "Warm Lapin coat", "250$", "78908", "42EU", "Cashmere and Lapin", "Winter");
+    $coat = new Clothes("Teddy Coat", "Camel", "Warm Lapin coat", "250$", "78908", "42EU", "Cashmere and Lapin", "Winter", $user2);
 
     class Seller
     {
-        public $vendor;
+        public function __construct($_userSeller)
+        {
+            $this->userSeller = $_userSeller;
+        }
     }
-
-    $user1 = new Seller();
-    $user1->seller = "Ufficio Tech";
-
-    $user2 = new Seller();
-    $user2->seller = "Peccato Moda";
 
     var_dump($coat);
 
@@ -71,22 +73,22 @@
         $coat,
     ];
 
-?>
+    ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product</title>
 
     <body>
         <h1>E-commerce Products</h1>
         <div>
             <h2>section->> HIGH-TECH</h2>
-            <p><strong>Nome prodotto:</strong> <?php echo $usb->name; ?></p>
+            <p><strong>Nome prodotto:</strong> <?php echo $usb->vendor->userSeller; ?></p>
             <p><strong>Colore:</strong> <?php echo $usb->color; ?></p>
             <p><strong>Descrizione:</strong> <?php echo $usb->description; ?></p>
             <p><strong>Prezzo:</strong> <?php echo $usb->price; ?></p>
@@ -94,11 +96,15 @@
             <p><strong>Garanzia:</strong> <?php echo $usb->assurance; ?></p>
             <p><strong>Dispositivo compatibile:</strong> <?php echo $usb->compatibility; ?></p>
             <p><strong>Codice prodotto:</strong> <?php echo $usb->getCode(); ?></p>
-            <p><strong>Venduto da:</strong> <?php echo $user1->seller; ?></p>
+            <!-- */<p><strong>Venduto da:</strong> <?php 
+            // echo $user1->seller;
+             ?>/* -->
+            </p>
         </div>
         <div>
             <h2>section->> CLOTHES</h2>
-            <p><strong>Nome prodotto:</strong> <?php echo $coat->name; ?></p>
+            <h2>section->> HIGH-TECH</h2>
+            <p><strong>Nome prodotto:</strong> <?php echo $coat->vendor->userSeller; ?></p>
             <p><strong>Colore:</strong> <?php echo $coat->color; ?></p>
             <p><strong>Descrizione:</strong> <?php echo $coat->description; ?></p>
             <p><strong>Prezzo:</strong> <?php echo $coat->price; ?></p>
@@ -119,4 +125,4 @@
         </div>
     </body>
 
-</html>
+    </html>
