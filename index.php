@@ -6,12 +6,14 @@
         public $color;
         public $description;
         public $price;
+        protected $code;
         
-        public function __construct($_name, $_color, $_description, $_price){
+        public function __construct($_name, $_color, $_description, $_price, $_code){
             $this->name = $_name;
             $this->color = $_color;
             $this->description = $_description;
             $this->price = $_price;
+            $this->code = $_code;
 
         }
         // public function getAuthor(){
@@ -25,7 +27,7 @@
         public $compatibility;
 
     }
-    $usb = new Hightech("DSK", "black", "usb pen", "15$");
+    $usb = new Hightech("DSK", "black", "usb pen", "15$", "65758");
     $usb->power_source = 'Charge';
     $usb->assurance = '2 years';
     $usb->compatibility = 'PC';
@@ -39,15 +41,15 @@
         public $tissue;
         public $season;
 
-        public function __construct($_name, $_color, $_description, $_price, $_size, $_tissue, $_season){
-            parent:: __construct($_name, $_color, $_description, $_price);
+        public function __construct($_name, $_color, $_description, $_price, $_code, $_size, $_tissue, $_season){
+            parent:: __construct($_name, $_color, $_description, $_price, $_code);
             $this->size = $_size;
             $this->tissue = $_tissue;
             $this->season = $_season;
             
         }
     }
-    $coat = new Clothes("Teddy Coat", "Camel", "Warm lapin coat", "250$", "42EU", "Cashmere and Lapin", "Winter");
+    $coat = new Clothes("Teddy Coat", "Camel", "Warm Lapin coat", "250$", "78908", "42EU", "Cashmere and Lapin", "Winter");
     
     var_dump($coat);
 
