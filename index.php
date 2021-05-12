@@ -1,4 +1,4 @@
-    <?php
+<?php
     $user1 = new Seller("Ufficio Tech");
 
     $user2 = new Seller("Peccato Moda");
@@ -73,10 +73,10 @@
         $coat,
     ];
 
-    ?>
+?>
 
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -103,7 +103,6 @@
         </div>
         <div>
             <h2>section->> CLOTHES</h2>
-            <h2>section->> HIGH-TECH</h2>
             <p><strong>Nome prodotto:</strong> <?php echo $coat->vendor->userSeller; ?></p>
             <p><strong>Colore:</strong> <?php echo $coat->color; ?></p>
             <p><strong>Descrizione:</strong> <?php echo $coat->description; ?></p>
@@ -125,4 +124,4 @@
         </div>
     </body>
 
-    </html>
+</html>
