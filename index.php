@@ -29,12 +29,12 @@ class Hightech extends Product
     public $assurance;
     public $compatibility;
 }
-    $usb = new Hightech("DSK", "Black", "Usb pen", "15$", "65758");
-    $usb->power_source = 'Charge';
-    $usb->assurance = '2 years';
-    $usb->compatibility = 'PC';
+$usb = new Hightech("DSK", "Black", "Usb pen", "15$", "65758");
+$usb->power_source = 'Charge';
+$usb->assurance = '2 years';
+$usb->compatibility = 'PC';
 
-    var_dump($usb);
+var_dump($usb);
 
 
 class Clothes extends Product
@@ -51,9 +51,14 @@ class Clothes extends Product
         $this->season = $_season;
     }
 }
-    $coat = new Clothes("Teddy Coat", "Camel", "Warm Lapin coat", "250$", "78908", "42EU", "Cashmere and Lapin", "Winter");
+$coat = new Clothes("Teddy Coat", "Camel", "Warm Lapin coat", "250$", "78908", "42EU", "Cashmere and Lapin", "Winter");
 
-    var_dump($coat);
+var_dump($coat);
+
+$preview = [
+    $usb,
+    $coat,
+];
 
 ?>
 
@@ -89,6 +94,17 @@ class Clothes extends Product
         <p><strong>Garanzia:</strong> <?php echo $coat->tissue; ?></p>
         <p><strong>Dispositivo compatibile:</strong> <?php echo $coat->season; ?></p>
         <p><strong>Codice prodotto:</strong> <?php echo $coat->getCode(); ?></p>
+    </div>
+    <div>
+        <h2>section--> BEST SELLER</h2>
+        <?php foreach ($preview as $post) { ?>
+
+            <a href="">
+                <h3><?php echo $post->name; ?></h3>
+            </a>
+            <p><?php echo $post->price; ?></p>
+
+        <?php } ?>
     </div>
 </body>
 
