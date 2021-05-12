@@ -25,21 +25,33 @@
         public $compatibility;
 
     }
-
-    class Clothes extends Product
-    {
-        public $size;
-        public $tissue;
-        public $season;
-    }
-    
-    $usb = new Hightech ("DSK", "black", "usb pen", "15$");
+    $usb = new Hightech("DSK", "black", "usb pen", "15$");
     $usb->power_source = 'Charge';
     $usb->assurance = '2 years';
     $usb->compatibility = 'PC';
 
     var_dump($usb);
 
+
+    class Clothes extends Product
+    {
+        public $size;
+        public $tissue;
+        public $season;
+
+        public function __construct($_name, $_color, $_description, $_price, $_size, $_tissue, $_season){
+            parent:: __construct($_name, $_color, $_description, $_price);
+            $this->size = $_size;
+            $this->tissue = $_tissue;
+            $this->season = $_season;
+            
+        }
+    }
+    $coat = new Clothes("Teddy Coat", "Camel", "Warm lapin coat", "250$", "42EU", "Cashmere and Lapin", "Winter");
+    
+    var_dump($coat);
+
+    
 
 ?>
 
