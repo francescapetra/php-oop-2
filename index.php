@@ -96,7 +96,7 @@ $preview = [
         <p><strong>Garanzia:</strong> <?php echo $usb->assurance; ?></p>
         <p><strong>Dispositivo compatibile:</strong> <?php echo $usb->compatibility; ?></p>
         <p><strong>Codice prodotto:</strong> <?php echo $usb->getCode(); ?></p>
-        <p><strong>Nome prodotto:</strong> <?php echo $usb->vendor->userSeller; ?></p>
+        <p><strong>Venduto da:</strong> <?php echo $usb->vendor->userSeller; ?></p>
         <!-- */<p><strong>Venduto da:</strong> <?php
                                                 // echo $user1->seller;
                                                 ?>/* -->
